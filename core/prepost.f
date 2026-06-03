@@ -1223,13 +1223,11 @@ c-----------------------------------------------------------------------
 
       if(nid.eq.0) then
         call chcopy(nam1(kk),'.nek5000',8)
-c.. RBK Hacks
-c..        open(unit=101,file=name)
-        open(unit=201,file=name)
-        write(201,*) "filetemplate: ", trim(fname), "%01d.f%05d"
-        write(201,*) "firsttimestep: 1"
-        write(201,*) "numtimesteps: ", nfld
-        close(201) 
+        open(unit=89,file=name)
+        write(89,*) "filetemplate: ", trim(fname), "%01d.f%05d"
+        write(89,*) "firsttimestep: 1"
+        write(89,*) "numtimesteps: ", nfld
+        close(89) 
       endif
 
       call chcopy(fnam1(k),six,ndigit)                  !  Add file-id holder
